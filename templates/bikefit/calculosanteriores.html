@@ -1,0 +1,66 @@
+{% extends 'bikefit/base.html' %}
+{% load static %}
+{% block content%}    
+    <form name="bikefit" method="post" action="{% url 'calculosanteriores' %}" class="needs-validation">
+        {% csrf_token %}
+        <div class="bg1">
+            <div class="container align-items-center">
+                <h3 class="text-center"> BUSCAR ANTERIORES</h3>
+                <p class="text-center">Digite seu e-mail e clique em buscar para pesquisar calculos feitos
+                    anteriormente.</p>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group d-flex justify-content-center">
+                                    <input type="email" name="email" class="form-control" style="max-width: 400px" required="" placeholder="digite aqui seu e-mail e clique em &quot;buscar&quot;">
+                                    <button value="enviar" class="btn btn-success">buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+
+    {% if calculos %}
+    <div class="container align-items-center  mb-5">
+        <ul class="list-group">
+            <li class="list-group-item ">
+                <div class="row align-items-center">
+                    <table class='table-bordered'>
+                        <tr>
+                            <th class='p-1 text-center'>Data</th>
+                            <th class='p-1 text-center'>Cavalo</th>
+                            <th class='p-1 text-center'>Esterno</th>
+                            <th class='p-1 text-center'>Braco</th>
+                            <th class='p-1 text-center'>Tronco</th>
+                            <th class='p-1 text-center'>Quadro de Speed</th>
+                            <th class='p-1 text-center'>Quadro de MTB</th>
+                            <th class='p-1 text-center'>Altura do Selim</th>
+                            <th class='p-1 text-center'>Top Tube Efetivo</th>
+                        </tr>
+                        {% for calculo in calculos %}
+                        <tr>
+                            <td class="text-center p-2">{{ calculo.data }}</td>
+                            <td class="text-end p-2">{{ calculo.cavalo|floatformat:2 }}</td>
+                            <td class="text-end p-2">{{ calculo.esterno|floatformat:2 }}</td>
+                            <td class="text-end p-2">{{ calculo.braco|floatformat:2 }}</td>
+                            <td class="text-end p-2">{{ calculo.tronco|floatformat:2 }}</td>
+                            <td class="text-end p-2">{{ calculo.quadro_speed|floatformat:2 }}</td>
+                            <td class="text-end p-2">{{ calculo.quadro_mtb|floatformat:2 }}</td>
+                            <td class="text-end p-2">{{ calculo.altura_selim|floatformat:2 }}</td>
+                            <td class="text-end p-2">{{ calculo.top_tube_efetivo|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </li>
+        </ul>
+    </div>
+    {% else %}
+    
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bikefit No Grau - Um bike fit virtual facil, leve e sem propagandas.</title>
+    <link rel="shortcut icon"
+          href="https://www.nograu.com.br/static/favicon.ico">
+    <meta name="author" content="Rodrigo Caliman">
+    <meta name="description"
+          content="Bikefit No Grau - Um bike fit virtual simples e facil de preencher usando as formulas criadas pelo tri campeao do Tour de France, Greg LeMond. Desde 2010 no ar para ajudar a todos os ciclistas que precisarem.">
+    <meta name="keywords"
+          content="bike bikefit fit bicicleta medidas tamanho postura posicao pedalar pedal pedalando dores dor">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'css/estilos.css' %}">
+</head>
+<body style="background-color: #2d2d30;">
+<header class="shadow mt-3 topo">
+    <div class="row">
+        <div class="col-4 align-self-center">
+            <ul class="nav justify-content-start">
+                <li class="nav-item">
+                    {% if messages %}
+                        {% include 'partials/_messages.html' %}
+                    {% else %}
+                        {% if quantidade_calculos_dia > 1 %}
+                            <contador style="opacity: 0.8;">
+                                Seja bem vindo(a). Já fizemos {{ quantidade_calculos_dia }} cálculos hoje! :)
+                            </contador>
+                        {% endif %}
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+        <div class="col-8">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'bikefit' %}">bikefit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'calculosanteriores' %}">calculos anteriores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'muraldemensagens' %}">mural de mensagens</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'links' %}">links</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'sobre' %}">sobre</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+{% block content %}{% endblock %}
+</body>
+</html>
