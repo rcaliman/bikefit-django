@@ -1,5 +1,5 @@
 from django.contrib import admin
-from bikefit.models import ModelCalculos, ModelMural
+from .models import ModelCalculos, ModelMural
 
 
 class AdminCalculos(admin.ModelAdmin):

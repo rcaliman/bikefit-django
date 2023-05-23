@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from bikefit.views import bikefit_home
+from apps.bikefit.views import bikefit_home
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('bikefit/', include('bikefit.urls')),
-    path('', bikefit_home),
+    path("admin/", admin.site.urls),
+    path("bikefit/", include("apps.bikefit.urls")),
+    path("", bikefit_home),
 ]

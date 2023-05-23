@@ -1,4 +1,4 @@
-from bikefit.models import ModelCalculos
+from .models import ModelCalculos
 from datetime import datetime
 
 
@@ -52,4 +52,8 @@ class CalculaBikeFit:
 
     @staticmethod
     def quantidade_de_calculos_do_dia():
-        return len(ModelCalculos.objects.filter(data__icontains=datetime.today().strftime('%Y-%m-%d')))
+        return len(
+            ModelCalculos.objects.filter(
+                data__icontains=datetime.today().strftime("%Y-%m-%d")
+            )
+        )

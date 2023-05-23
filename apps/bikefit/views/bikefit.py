@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from bikefit.models import ModelCalculos
-from bikefit.utils import CalculaBikeFit
+from apps.bikefit.models import ModelCalculos
+from apps.bikefit.utils import CalculaBikeFit
 from datetime import datetime
 from django.utils.timezone import make_aware
-from bikefit.forms import MedidasForm
+from apps.bikefit.forms import MedidasForm
 from django.contrib import messages
 
 

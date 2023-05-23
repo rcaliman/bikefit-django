@@ -1,14 +1,20 @@
-{% extends 'bikefit/base.html' %}
+{% extends "shared/base.html" %}
 {% load static %}
 {% block content %}
-    <form name="bikefit" method="post" action="{% url 'resultadobikefit' %}" class="needs-validation">
+    <form name="bikefit"
+          method="post"
+          action="{% url 'resultadobikefit' %}"
+          class="needs-validation">
         {% csrf_token %}
         <div class="bg1">
             <div class="container align-items-center">
                 <h3 class="text-center">BIKE FIT VIRTUAL</h3>
-                <p class="text-center">Digite com atenção suas medidas em CENTIMETROS e conforme as imagens.<br>Exemplo:
-                    em uma medida de 1 metro e 65 centimetros digite 165.</p>
-
+                <p class="text-center">
+                    Digite com atenção suas medidas em CENTIMETROS e conforme as imagens.
+                    <br>
+                    Exemplo:
+                    em uma medida de 1 metro e 65 centimetros digite 165.
+                </p>
                 <ul class="list-group">
                     {% for field in form.visible_fields %}
                         {% if field.id_for_label == 'id_cavalo' %}
@@ -32,13 +38,13 @@
                                 <div class="row align-items-center">
                                     <div class="col text-center self-align-center">
                                         <texto_medio>Cavalo: uma das medidas mais importantes para determinar o
-                                            tamanho do quadro. Fique totalmente encostado na parede e use um livro ou
-                                            algo
-                                            do
-                                            tipo entre as pernas, o mais alto que puder, para medir a distancia do chao
-                                            ate
-                                            o
-                                            topo do objeto usado.
+                                        tamanho do quadro. Fique totalmente encostado na parede e use um livro ou
+                                        algo
+                                        do
+                                        tipo entre as pernas, o mais alto que puder, para medir a distancia do chao
+                                        ate
+                                        o
+                                        topo do objeto usado.
                                         </texto_medio>
                                     </div>
                                 </div>
@@ -65,9 +71,9 @@
                                 <div class="row align-items-center">
                                     <div class="col text-center">
                                         <texto_medio>Esterno: esta medida servira para, junto com o tamanho do braço,
-                                            determinar o comprimento total do quadro + mesa. Mede-se do chao ate a parte
-                                            inferior da marca em V que temos acima do peito, onde fica o osso chamado
-                                            esterno.
+                                        determinar o comprimento total do quadro + mesa. Mede-se do chao ate a parte
+                                        inferior da marca em V que temos acima do peito, onde fica o osso chamado
+                                        esterno.
                                         </texto_medio>
                                     </div>
                                 </div>
@@ -88,14 +94,13 @@
                                             <span class="input-group-text">cm</span>
                                         </div>
                                     </div>
-
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row align-items-center">
                                     <div class="col text-center">
                                         <texto_medio>Braço: estique o braço com o polegar para cima para medir
-                                            conforme a foto ao lado.
+                                        conforme a foto ao lado.
                                         </texto_medio>
                                     </div>
                                 </div>
@@ -108,9 +113,7 @@
                                         <p>
                                             <texto_negrito># E-MAIL</texto_negrito>
                                         </p>
-                                        <div class="input-group justify-content-center">
-                                            {{ field }}
-                                        </div>
+                                        <div class="input-group justify-content-center">{{ field }}</div>
                                         <p>(apenas se quiser recuperar seu calculo mais tarde)</p>
                                         <div class="alert alert-success alert-dismissible show fade">
                                             <b>Muito importante</b>: este bikefit virtual usa uma formula simples e
@@ -133,11 +136,10 @@
                                             <button type="button" data-bs-dismiss="alert" class="btn-close"></button>
                                             <div style="padding-top: 5px; text-align: center;">
                                                 <texto_pequeno>* O chamado metodo LeMond, usado aqui,
-                                                    foi criado pelo tri-campeão do Tour de France Greg Lemond.
+                                                foi criado pelo tri-campeão do Tour de France Greg Lemond.
                                                 </texto_pequeno>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </li>
@@ -159,7 +161,5 @@
                 </ul>
             </div>
         </div>
-
     </form>
 {% endblock %}
-    

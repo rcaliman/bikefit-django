@@ -1,25 +1,29 @@
-{% extends 'bikefit/base.html' %}
+{% extends "shared/base.html" %}
 {% load static %}
 {% block content %}
-    <form name="muraldemensagens" method="POST" action="{% url 'muraldemensagens' %}" class="needs-validation">
+    <form name="muraldemensagens"
+          method="post"
+          action="{% url 'muraldemensagens' %}"
+          class="needs-validation">
         {% csrf_token %}
         <div class="bg1">
             <div class="container align-items-center">
                 <h3 class="text-center">MURAL DE MENSAGENS</h3>
-                <p class="text-center">Deixem suas mensagens, duvidas e criticas construtivas. Por favor, tenham
+                <p class="text-center">
+                    Deixem suas mensagens, duvidas e criticas construtivas. Por favor, tenham
                     cortesia e
-                    educacao.</p>
+                    educacao.
+                </p>
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col">
                                 {% for field in form.visible_fields %}
-                                    <div class="input-group mt-3 d-flex justify-content-center">
-                                        {{ field }}
-                                    </div>
+                                    <div class="input-group mt-3 d-flex justify-content-center">{{ field }}</div>
                                 {% endfor %}
                                 <div class="input-group mt-3 d-flex justify-content-center">
-                                    <button class="form-control btn btn-success" style="max-width: 500px;">clique aqui
+                                    <button class="form-control btn btn-success" style="max-width: 500px;">
+                                        clique aqui
                                         para
                                         postar
                                     </button>
@@ -31,21 +35,17 @@
             </div>
         </div>
     </form>
-
     <div class="container align-items-center mt-4">
         <ul class="list-group">
             {% for postagem in postagens %}
                 <li class="list-group-item text-center">
                     <texto>{{ postagem.mensagem }}</texto>
                     <p>
-                        <texto_pequeno>{{ postagem.data }} - <a href="mailto:{{ postagem.email }}"
-                                                                style="color:#2d2d30">{{ postagem.nome }}</a>
-                        </texto_pequeno>
-                    </p>
-                </li>
-            {% endfor %}
-        </ul>
-
-    </div>
-
+                    <texto_pequeno>{{ postagem.data }} - <a href="mailto:{{ postagem.email }}" style="color:#2d2d30">{{ postagem.nome }}</a>
+                    </texto_pequeno>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.urls import path
-from bikefit.views import bikefit_home, bikefit_resultado, calculos_anteriores, mural_de_mensagens, links, sobre
+from .views import bikefit_home, bikefit_resultado, calculos_anteriores, mural_de_mensagens, links, sobre
 
 urlpatterns = [
     path('', bikefit_home, name='bikefit'),

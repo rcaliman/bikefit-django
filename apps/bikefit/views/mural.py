@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
-from bikefit.models import ModelMural
-from bikefit.forms import MuralForm
+from apps.bikefit.models import ModelMural
+from apps.bikefit.forms import MuralForm
 
 
 def mural_de_mensagens(request):

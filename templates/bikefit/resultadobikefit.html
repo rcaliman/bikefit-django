@@ -1,30 +1,34 @@
-{% extends 'bikefit/base.html' %}
+{% extends "shared/base.html" %}
 {% load static %}
 {% block content %}
-    
     <div class="bg1">
         <div class="container align-items-center">
             <h3 class="text-center">RESULTADOS</h3>
-            <p class="text-center">Este bike fit foi concebido de acordo com o metodo LeMond, e seguindo as
+            <p class="text-center">
+                Este bike fit foi concebido de acordo com o metodo LeMond, e seguindo as
                 especificacoes <a href="https://www.competitivecyclist.com/docs/competitivecyclist/fitcal/road-fit.pdf">deste
-                    documento</a>.</p>
+                documento</a>.
+            </p>
             <ul class="list-group">
                 <li class="list-group-item">
                     <div class="row align-items-center">
                         <div class="col">
-                            <div style="text-align: center;">Cavalo:
+                            <div style="text-align: center;">
+                                Cavalo:
                                 <texto_resultado>{{ calculo.cavalo|floatformat:2 }}</texto_resultado>
                                 cm
                             </div>
                         </div>
                         <div class="col">
-                            <div style="text-align: center;">Tronco ( {{ calculo.esterno }} - {{ calculo.cavalo }}):
+                            <div style="text-align: center;">
+                                Tronco ( {{ calculo.esterno }} - {{ calculo.cavalo }}):
                                 <texto_resultado>{{ calculo.tronco|floatformat:2 }}</texto_resultado>
                                 cm
                             </div>
                         </div>
                         <div class="col">
-                            <div style="text-align: center;">Braços:
+                            <div style="text-align: center;">
+                                Braços:
                                 <texto_resultado>{{ calculo.braco|floatformat:2 }}</texto_resultado>
                                 cm
                             </div>
@@ -46,10 +50,10 @@
                         </div>
                         <div class="col">
                             <texto_medio>A maioria dos fabricantes definem o tamanho do quadro pela distancia entre a
-                                central e o topo do tubo do selim (seat tube). O numero apresentado aqui deve ser usado
-                                como referencia, podendo ter variacoes para menos ou para mais de acordo com o
-                                fabricante e/ou suas preferencias pois, em geral, um quadro menor te permite ter mais
-                                agilidade, enquanto um maior concede mais conforto.
+                            central e o topo do tubo do selim (seat tube). O numero apresentado aqui deve ser usado
+                            como referencia, podendo ter variacoes para menos ou para mais de acordo com o
+                            fabricante e/ou suas preferencias pois, em geral, um quadro menor te permite ter mais
+                            agilidade, enquanto um maior concede mais conforto.
                             </texto_medio>
                         </div>
                     </div>
@@ -65,8 +69,8 @@
                         </div>
                         <div class="col">
                             <texto_medio>Mede-se da central ao topo do selim, conforme a marca laranja no desenho. A
-                                altura pode variar entre 1 e 2 cm, para menos ou para mais, de acordo com a preferencia
-                                do ciclista.
+                            altura pode variar entre 1 e 2 cm, para menos ou para mais, de acordo com a preferencia
+                            do ciclista.
                             </texto_medio>
                         </div>
                     </div>
@@ -82,9 +86,9 @@
                         </div>
                         <div class="col">
                             <texto_medio>Aqui temos a distancia do canote do selim ao guidao, ou seja, a soma do chamado
-                                top tube efetivo + a mesa. Tenha muita atencao com essa medida para evitar que o
-                                ciclista fique muito encolhido, ou muito esticado, em cima da bike, garantindo assim
-                                melhor performance e conforto, sem prejudicar sua saude fisica.
+                            top tube efetivo + a mesa. Tenha muita atencao com essa medida para evitar que o
+                            ciclista fique muito encolhido, ou muito esticado, em cima da bike, garantindo assim
+                            melhor performance e conforto, sem prejudicar sua saude fisica.
                             </texto_medio>
                         </div>
                     </div>
@@ -92,8 +96,8 @@
                 <li class="list-group-item">
                     <div style="text-align: center;">
                         <texto_medio>* O top tube efetivo merece tanta ou mais atencao na configuracao de uma bike
-                            quanto o seat tube. Nunca deixe de leva-lo em consideracao na hora da compra. A maioria dos
-                            fabricantes divulga a tabela de geometria de seus quadros.
+                        quanto o seat tube. Nunca deixe de leva-lo em consideracao na hora da compra. A maioria dos
+                        fabricantes divulga a tabela de geometria de seus quadros.
                         </texto_medio>
                     </div>
                 </li>
@@ -105,10 +109,13 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <div class="input-group d-flex justify-content-center">
-                        <a target="#" class="form-control btn btn-success" style="max-width: 500px;" href="{% url 'muraldemensagens' %}">quer comentar seus resultados no nosso mural?</a>
+                        <a target="#"
+                           class="form-control btn btn-success"
+                           style="max-width: 500px"
+                           href="{% url 'muraldemensagens' %}">quer comentar seus resultados no nosso mural?</a>
                     </div>
                 </li>
             </ul>
         </div>
     </div>
-{% endblock %}
+{% endblock content %}
