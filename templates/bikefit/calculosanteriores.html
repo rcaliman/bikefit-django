@@ -52,7 +52,7 @@
                             </tr>
                             {% for calculo in calculos %}
                                 <tr>
-                                    <td class="text-center p-2">{{ calculo.data }}</td>
+                                    <td class="text-center p-2">{{ calculo.data|date: 'd/m/Y' }}</td>
                                     <td class="text-end p-2">{{ calculo.cavalo|floatformat:2 }}</td>
                                     <td class="text-end p-2">{{ calculo.esterno|floatformat:2 }}</td>
                                     <td class="text-end p-2">{{ calculo.braco|floatformat:2 }}</td>
